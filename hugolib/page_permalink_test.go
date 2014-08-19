@@ -28,6 +28,8 @@ func TestPermalink(t *testing.T) {
 		{"x/y/z/boofar.md", "x/y/z/", "", "boofar", "", true, "/x/y/z/boofar.html", "/x/y/z/boofar.html"},
 		{"x/y/z/boofar.md", "x/y/z", "http://barnew/", "", "", true, "http://barnew/x/y/z/boofar.html", "/x/y/z/boofar.html"},
 		{"x/y/z/boofar.md", "x/y/z/", "http://barnew/", "boofar", "", true, "http://barnew/x/y/z/boofar.html", "/x/y/z/boofar.html"},
+                {"x/y/z/boofar.md", "x/y/z", "http://barnew/path", "", "", true, "http://barnew/path/x/y/z/boofar.html", "/x/y/z/boofar.html"},
+                {"x/y/z/boofar.md", "x/y/z/", "http://barnew/path/", "boofar", "", true, "http://barnew/path/x/y/z/boofar.html", "/x/y/z/boofar.html"},
 
 		// test url overrides
 		{"x/y/z/boofar.md", "x/y/z", "", "", "/z/y/q/", false, "/z/y/q/", "/z/y/q/"},
