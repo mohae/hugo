@@ -25,7 +25,7 @@ import (
 
 	"github.com/mostafah/fsync"
 	"github.com/spf13/cobra"
-	"github.com/spf13/hugo/helpers"
+	"github.com/mohae/hugo/helpers"
 	"github.com/spf13/hugo/hugolib"
 	"github.com/spf13/hugo/livereload"
 	"github.com/spf13/hugo/utils"

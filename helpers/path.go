@@ -253,3 +253,16 @@ func WriteToDisk(inpath string, r io.Reader) (err error) {
 	_, err = io.Copy(file, r)
 	return
 }
+
+func appendSlash(s string) string {
+	// Don't append empty strings...does this make sense?
+	if s == "" {
+		return ""
+	}
+
+	if !strings.HasSuffix(s, "/") {
+		s += "/"
+	}
+
+	return s
+}

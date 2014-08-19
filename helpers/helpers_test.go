@@ -74,3 +74,23 @@ func TestUrlize(t *testing.T) {
 		}
 	}
 }
+
+func TestMakePermalink(t *testing.T) {
+	tests := []struct {
+		baseURL string
+		plink string
+		expected string
+	}{
+		{"http://example.com", "posts/hello-world", "http://example.com/posts/hello-world"},
+		{"http://example.com/", "posts/hello-world", "http://example.com/posts/hello-world"},
+		{"http://example.com/sub/", "posts/hello-world", "http://example.com/sub/posts/hello-world"},
+		{"http://example.com/sub", "posts/hello-world", "http://example.com/sub/posts/hello-world"},
+	}
+
+	for _, test := range tests{
+		url :=  MakePermalink(test.baseURL, test.plink)
+		if url.String() != test.expected {
+			t.Errorf("Expected %#v, got %#v\n", test.expected, url)
+		}
+	}
+}

@@ -52,6 +52,10 @@ func Urlize(uri string) string {
 //    result: http://spf13.com/post/how-i-blog
 func MakePermalink(host, plink string) *url.URL {
 
+	// Append a slash, if one doesn't exist. This will allow for proper
+	// handling of paths after the domain.
+	host = appendSlash(host)
+
 	base, err := url.Parse(host)
 	if err != nil {
 		panic(err)
