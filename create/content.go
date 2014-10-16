@@ -124,9 +124,9 @@ func FindArchetype(kind string) (outpath string) {
 		var pathsToCheck []string
 
 		if kind == "" {
-			pathsToCheck = []string{"default.md", "default"}
+			pathsToCheck = []string{"default.md", "default.markdown", "default"}
 		} else {
-			pathsToCheck = []string{kind + ".md", kind, "default.md", "default"}
+			pathsToCheck = []string{kind + ".md", kind + ".markdown", kind, "default.md", "default.markdown", "default"}
 		}
 		for _, p := range pathsToCheck {
 			curpath := path.Join(x, p)

@@ -61,7 +61,7 @@ func (fs *Filesystem) Translate(src string) (dest string, err error) {
 
 func (fs *Filesystem) extension(ext string) string {
 	switch ext {
-	case ".md", ".rst": // TODO make this list configurable.  page.go has the list of markup types.
+	case ".md", ".markdown", ".rst": // TODO make this list configurable.  page.go has the list of markup types.
 		return ".html"
 	}
 
