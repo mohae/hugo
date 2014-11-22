@@ -271,29 +271,6 @@ func PrettifyPath(in string) string {
 	}
 }
 
-func FindCWD() (string, error) {
-	serverFile, err := filepath.Abs(os.Args[0])
-
-	if err != nil {
-		return "", fmt.Errorf("Can't get absolute path for executable: %v", err)
-	}
-
-	path := filepath.Dir(serverFile)
-	realFile, err := filepath.EvalSymlinks(serverFile)
-
-	if err != nil {
-		if _, err = os.Stat(serverFile + ".exe"); err == nil {
-			realFile = filepath.Clean(serverFile + ".exe")
-		}
-	}
-
-	if err == nil && realFile != serverFile {
-		path = filepath.Dir(realFile)
-	}
-
-	return path, nil
-}
-
 func SafeWriteToDisk(inpath string, r io.Reader, fs afero.Fs) (err error) {
 	dir, _ := filepath.Split(inpath)
 	ospath := filepath.FromSlash(dir)
